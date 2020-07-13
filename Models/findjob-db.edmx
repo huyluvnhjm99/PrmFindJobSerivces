@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="fjModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="company">
+          <Key>
+            <PropertyRef Name="company_name" />
+          </Key>
+          <Property Name="company_name" Type="nvarchar" MaxLength="125" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="255" />
+          <Property Name="gmail" Type="nvarchar" MaxLength="125" />
+          <Property Name="phone" Type="nvarchar" MaxLength="125" />
+          <Property Name="image" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="job">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="125" />
+          <Property Name="description" Type="nvarchar" MaxLength="999" />
+          <Property Name="salary" Type="float" />
+          <Property Name="company_name" Type="nvarchar" MaxLength="125" />
+          <Property Name="status" Type="nvarchar" MaxLength="125" />
+          <Property Name="image" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="skill">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="125" />
+          <Property Name="point" Type="int" />
+          <Property Name="gmail" Type="nvarchar" MaxLength="125" />
+          <Property Name="job_id" Type="int" />
+          <Property Name="image" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="gmail" />
+          </Key>
+          <Property Name="gmail" Type="nvarchar" MaxLength="125" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="125" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" />
+          <Property Name="age" Type="int" />
+          <Property Name="company_name" Type="nvarchar" MaxLength="125" />
+          <Property Name="phone" Type="nvarchar" MaxLength="125" />
+          <Property Name="image" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityContainer Name="fjModelStoreContainer">
+          <EntitySet Name="company" EntityType="Self.company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="job" EntityType="Self.job" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="skill" EntityType="Self.skill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="fjModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="company">
+          <Key>
+            <PropertyRef Name="company_name" />
+          </Key>
+          <Property Name="company_name" Type="String" MaxLength="125" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="gmail" Type="String" MaxLength="125" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="125" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="job">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="125" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="999" FixedLength="false" Unicode="true" />
+          <Property Name="salary" Type="Double" />
+          <Property Name="company_name" Type="String" MaxLength="125" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="125" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="skill">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="125" FixedLength="false" Unicode="true" />
+          <Property Name="point" Type="Int32" />
+          <Property Name="gmail" Type="String" MaxLength="125" FixedLength="false" Unicode="true" />
+          <Property Name="job_id" Type="Int32" />
+          <Property Name="image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="gmail" />
+          </Key>
+          <Property Name="gmail" Type="String" MaxLength="125" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="125" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="company_name" Type="String" MaxLength="125" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="125" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="fjEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="companies" EntityType="Self.company" />
+          <EntitySet Name="jobs" EntityType="Self.job" />
+          <EntitySet Name="skills" EntityType="Self.skill" />
+          <EntitySet Name="users" EntityType="Self.user" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="fjModelStoreContainer" CdmEntityContainer="fjEntities">
+          <EntitySetMapping Name="companies">
+            <EntityTypeMapping TypeName="fjModel.company">
+              <MappingFragment StoreEntitySet="company">
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="gmail" ColumnName="gmail" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jobs">
+            <EntityTypeMapping TypeName="fjModel.job">
+              <MappingFragment StoreEntitySet="job">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="skills">
+            <EntityTypeMapping TypeName="fjModel.skill">
+              <MappingFragment StoreEntitySet="skill">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="point" ColumnName="point" />
+                <ScalarProperty Name="gmail" ColumnName="gmail" />
+                <ScalarProperty Name="job_id" ColumnName="job_id" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="fjModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="gmail" ColumnName="gmail" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
