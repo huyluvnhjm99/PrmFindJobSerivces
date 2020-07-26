@@ -29,5 +29,6 @@ namespace PrmFindJobSerivces.Models
         public virtual DbSet<job> jobs { get; set; }
         public virtual DbSet<skill> skills { get; set; }
         public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<apply> applies { get; set; }
     }
 }
