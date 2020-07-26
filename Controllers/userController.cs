@@ -12,6 +12,7 @@ using PrmFindJobSerivces.Models;
 
 namespace PrmFindJobSerivces.Controllers
 {
+    [RoutePrefix("api/user")]
     public class userController : ApiController
     {
         private fjEntities db = new fjEntities();
@@ -22,18 +23,14 @@ namespace PrmFindJobSerivces.Controllers
             return db.users;
         }
 
-        // GET: api/user/5
+        [Route("gmail")]
         [ResponseType(typeof(user))]
-        public IHttpActionResult Getuser(string id)
+        public IQueryable<user> Getuser(string gmail)
         {
-            user user = db.users.Find(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(user);
+            return db.users.Where(e => e.gmail == gmail);
         }
+
+        // GET: api/user/5
 
         // PUT: api/user/5
         [ResponseType(typeof(void))]
