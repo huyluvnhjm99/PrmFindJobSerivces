@@ -30,6 +30,7 @@ namespace PrmFindJobSerivces.Controllers
             return db.users.Where(e => e.gmail == gmail);
         }
 
+
         // GET: api/user/5
 
         // PUT: api/user/5
